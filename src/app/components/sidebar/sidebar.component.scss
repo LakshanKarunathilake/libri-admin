@@ -1,0 +1,14 @@
+.logo {
+    height: 14vh;
+    padding: 0;
+}
+
+.logo-img {
+    > img {
+        width: 15vw;
+        min-width: 150px;
+        max-width: 250px;
+        margin: 0 auto;
+        display: block;
+    }
+}
