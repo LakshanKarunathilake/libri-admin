@@ -1,0 +1,28 @@
+<div style="width: 100%;height:450px;">
+  <mat-card style="width: 40%;margin: 0 auto;position: absolute;top: 40%;left: 30%;padding: 10px;">
+    <mat-card-title>Login Form</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="loginForm">
+        <mat-form-field class="formField" appearance="outline">
+          <mat-hint>Place your University Email</mat-hint>
+          <input matInput placeholder="User name" formControlName="userName" />
+          <mat-error *ngIf="loginForm.controls['userName'].invalid">
+            Check user name
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="formField" appearance="outline">
+          <mat-hint>Enter your password</mat-hint>
+          <input matInput placeholder="Password" formControlName="userPassword" type="password" />
+          <mat-error *ngIf="loginForm.controls['userPassword'].invalid">
+            Check the password
+          </mat-error>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions style="margin:auto 0">
+      <button mat-raised-button style="float: right;" color="primary" (click)="login()">
+        Login
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
