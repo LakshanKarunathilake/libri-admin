@@ -16,9 +16,73 @@
         <div class="row">
           <div class="col-md-6">
             <h4 class="card-title">Notifications Style</h4>
+            <div class="row">
+              <div class="col-md-9">
+                <mat-form-field>
+                  <input matInput placeholder="Group" [(ngModel)]="newTopic" />
+                </mat-form-field>
+              </div>
+              <div class="col-md-2">
+                <button mat-button color="primary" style="font-size: 2rem" (click)="createTopic()">
+                  +
+                </button>
+              </div>
+            </div>
+            <div class="row" *ngFor="let topic of topics | async">
+              <div class="col-md-6">{{ topic.name }}</div>
+              <div class="col-md-2">
+                <button mat-icon-button color="warn" size="small">
+                  <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+                </button>
+              </div>
+            </div>
           </div>
           <div class="col-md-6">
-            <h4 class="card-title">Notification states</h4>
+            <form [formGroup]="createNoticeForm">
+              <h4 class="card-title">Notification states</h4>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <mat-label>Notification group</mat-label>
+                    <mat-select formControlName="topic">
+                      <mat-option *ngFor="let topic of topics | async" [value]="topic.name">{{
+                        topic.name
+                      }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <input matInput placeholder="Title" formControlName="title" />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <input
+                      matInput
+                      placeholder="Expiration in seconds"
+                      formControlName="expiration"
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <mat-form-field>
+                    <textarea
+                      matInput
+                      placeholder="Enter Message"
+                      formControlName="message"
+                    ></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+              <button mat-raised-button class="btn btn-danger pull-right" (click)="createNotice()">
+                Publish
+              </button>
+            </form>
           </div>
         </div>
       </div>
