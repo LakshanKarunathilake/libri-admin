@@ -12,6 +12,7 @@ import swal from 'sweetalert';
 export class NotificationsComponent implements OnInit {
   newTopic = '';
   topics;
+  notices;
   createNoticeForm: FormGroup;
   constructor(private afs: AngularFirestore, private fb: FormBuilder) {}
   ngOnInit() {
@@ -20,6 +21,8 @@ export class NotificationsComponent implements OnInit {
       .doc('notices')
       .collection('topics')
       .valueChanges();
+
+    this.notices = this.afs.collection('notices').valueChanges();
     this.createNoticeForm = this.fb.group({
       topic: ['', [Validators.required]],
       title: ['', [Validators.required]],
@@ -52,7 +55,8 @@ export class NotificationsComponent implements OnInit {
           message: this.createNoticeForm.controls['message'].value,
           title: this.createNoticeForm.controls['title'].value,
           expiration: this.createNoticeForm.controls['expiration'].value,
-          topic: this.createNoticeForm.controls['topic'].value
+          topic: this.createNoticeForm.controls['topic'].value,
+          published: new Date()
         })
         .then(() => {
           swal('Success', 'Notice created successfully');
