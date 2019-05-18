@@ -1,3 +1,110 @@
-<p>
-  users works!
-</p>
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title ">Simple Table</h4>
+            <p class="card-category">Here is a subtitle for this table</p>
+          </div>
+          <div class="card-body">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+            </mat-form-field>
+
+            <div>
+              <div class="example-loading-shade" *ngIf="isLoadingResults">
+                <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+                <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+                  GitHub's API rate limit has been reached. It will be reset in one minute.
+                </div>
+              </div>
+              <table mat-table [dataSource]="dataSource" matSort style="width: 100%">
+                <!-- ID Column -->
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+                  <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+                </ng-container>
+
+                <!-- Progress Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                  <td mat-cell *matCellDef="let row">{{ row.displayName }}</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="verified">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Verified</th>
+                  <td mat-cell *matCellDef="let row">{{ row.verified }}</td>
+                </ng-container>
+
+                <!-- Color Column -->
+                <ng-container matColumnDef="disabled">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Disabled</th>
+                  <td mat-cell *matCellDef="let row" [style.color]="row.color">
+                    {{ row.disabled }}
+                  </td>
+                </ng-container>
+                <!-- Last Login Column -->
+                <ng-container matColumnDef="lastLogin">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Login</th>
+                  <td mat-cell *matCellDef="let row" [style.color]="row.color">
+                    {{ row.lastLogin }}
+                  </td>
+                </ng-container>
+                <!-- Created Column -->
+                <ng-container matColumnDef="created">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Created</th>
+                  <td mat-cell *matCellDef="let row" [style.color]="row.color">
+                    {{ row.created }}
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+              </table>
+
+              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+            </div>
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+            </mat-form-field>
+
+            <div class="mat-elevation-z8">
+              <table mat-table [dataSource]="dataSource" matSort>
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+                  <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+                </ng-container>
+
+                <!-- Progress Column -->
+                <ng-container matColumnDef="progress">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Progress</th>
+                  <td mat-cell *matCellDef="let row">{{ row.progress }}%</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                  <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+                </ng-container>
+
+                <!-- Color Column -->
+                <ng-container matColumnDef="color">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Color</th>
+                  <td mat-cell *matCellDef="let row" [style.color]="row.color">{{ row.color }}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+              </table>
+
+              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
