@@ -1,3 +1,4 @@
+import {AngularFireFunctionsModule} from '@angular/fire/functions';
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
@@ -19,8 +20,12 @@ import {
   MatFormFieldModule,
   MatTooltipModule,
   MatSelectModule,
-  MatIconModule
+  MatIconModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
+import {UsersComponent} from 'app/components/users/users.component';
 
 @NgModule({
   imports: [
@@ -34,7 +39,11 @@ import {
     MatSelectModule,
     MatTooltipModule,
     MatIconModule,
-    ReactiveFormsModule
+    MatTableModule,
+    MatPaginatorModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    AngularFireFunctionsModule
   ],
   declarations: [
     DashboardComponent,
@@ -44,7 +53,8 @@ import {
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    UpgradeComponent
+    UpgradeComponent,
+    UsersComponent
   ]
 })
 export class AdminLayoutModule {}
