@@ -4,8 +4,8 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-danger">
-            <h4 class="card-title ">Simple Table</h4>
-            <p class="card-category">Here is a subtitle for this table</p>
+            <h4 class="card-title ">Users table</h4>
+            <p class="card-category">This will list down all the users registered under Libri</p>
           </div>
           <div class="card-body">
             <mat-form-field>
@@ -15,9 +15,6 @@
             <div>
               <div class="example-loading-shade" *ngIf="isLoadingResults">
                 <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-                <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
-                  GitHub's API rate limit has been reached. It will be reset in one minute.
-                </div>
               </div>
               <table mat-table [dataSource]="dataSource" matSort style="width: 100%">
                 <!-- ID Column -->
