@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "libri-238805"
+  },
+  "targets": {
+    "libri-238805": {
+      "hosting": {
+        "admin": [
+          "libri-admin"
+        ]
+      }
+    }
+  }
+}
