@@ -30,7 +30,7 @@ export class UsersComponent implements OnInit {
       .then(({data}) => {
         console.log(data);
         // Adding the data to the data source for the table
-        const users = Object.values(data);
+        const users = Object.keys(data).map(key => data[key]);
         // Deactivating spinner
         this.isLoadingResults = false;
         console.log('users', users);
