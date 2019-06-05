@@ -20,4 +20,11 @@ export class OverallInfoService {
   getBookRequests = () => {
     return this.afs.doc('users/{userID}/requests');
   };
+
+  /**
+   * Get paid penalty payments
+   */
+  getPenaltyPayments = () => {
+    return this.afs.doc('users/{userID}/penalties');
+  };
 }
