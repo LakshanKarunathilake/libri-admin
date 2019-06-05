@@ -13,4 +13,11 @@ export class OverallInfoService {
   getFeedbacks = () => {
     return this.afs.collection('feedback');
   };
+
+  /**
+   * Get book requests
+   */
+  getBookRequests = () => {
+    return this.afs.doc('users/{userID}/requests');
+  };
 }
