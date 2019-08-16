@@ -26,6 +26,7 @@ import {
   MatProgressSpinnerModule
 } from '@angular/material';
 import {UsersComponent} from 'app/components/users/users.component';
+import {BookRequestsComponent} from 'app/components/book-requests/book-requests.component';
 
 @NgModule({
   imports: [
@@ -54,7 +55,8 @@ import {UsersComponent} from 'app/components/users/users.component';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-    UsersComponent
+    UsersComponent,
+    BookRequestsComponent
   ]
 })
 export class AdminLayoutModule {}
