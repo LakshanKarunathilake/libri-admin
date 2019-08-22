@@ -1,0 +1,65 @@
+[debug] [2019-08-22T09:42:35.747Z] ----------------------------------------------------------------------
+[debug] [2019-08-22T09:42:35.749Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\lakshan\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-08-22T09:42:35.750Z] CLI Version:   7.1.0
+[debug] [2019-08-22T09:42:35.750Z] Platform:      win32
+[debug] [2019-08-22T09:42:35.750Z] Node Version:  v10.16.0
+[debug] [2019-08-22T09:42:35.751Z] Time:          Thu Aug 22 2019 15:12:35 GMT+0530 (India Standard Time)
+[debug] [2019-08-22T09:42:35.751Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-08-22T09:42:35.763Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-08-22T09:42:35.763Z] > authorizing via signed-in user
+[debug] [2019-08-22T09:42:35.763Z] [iam] checking project libri-238805 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-08-22T09:42:35.765Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-08-22T09:42:35.765Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-08-22T09:42:36.126Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-22T09:42:36.130Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/libri-238805:testIamPermissions  
+
+[debug] [2019-08-22T09:42:37.684Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-22T09:42:37.685Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/libri-238805  
+ 
+[debug] [2019-08-22T09:42:38.324Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'libri-238805'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-08-22T09:42:38.330Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/libri-admin/versions  
+
+[debug] [2019-08-22T09:42:40.724Z] <<< HTTP RESPONSE 200
+[info] i  hosting[libri-admin]: beginning deploy...
+[info] i  hosting[libri-admin]: found 102 files in dist
+[debug] [2019-08-22T09:42:40.757Z] [hosting] hash cache [ZGlzdA] load error: lines is not defined
+[debug] [2019-08-22T09:42:40.879Z] [hosting] hash cache [ZGlzdA] stored for 102 files
+[debug] [2019-08-22T09:42:40.879Z] [hosting][hash queue][FINAL]
+[debug] [2019-08-22T09:42:40.879Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/libri-admin/versions/09c8816681706b94:populateFiles  
+ <request body omitted>
+[debug] [2019-08-22T09:42:45.984Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-22T09:42:45.984Z] [hosting][populate queue][FINAL]
+[debug] [2019-08-22T09:42:45.984Z] [hosting] uploads queued: 0
+[debug] [2019-08-22T09:42:45.984Z] [hosting][upload queue][FINAL]
+[info] +  hosting[libri-admin]: file upload complete
+[debug] [2019-08-22T09:42:45.985Z] [hosting] deploy completed after 5259ms
+[debug] [2019-08-22T09:42:45.986Z] [
+  {
+    "config": {
+      "target": "admin",
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    "site": "libri-admin",
+    "version": "sites/libri-admin/versions/09c8816681706b94"
+  }
+]
+[info] i  hosting[libri-admin]: finalizing version...
+[debug] [2019-08-22T09:42:45.986Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/libri-admin/versions/09c8816681706b94?updateMask=status  
+
