@@ -18,8 +18,17 @@ export class OverallInfoService {
     return this.afs
       .collection('Feedback')
       .valueChanges()
-      .pipe()
-      .toPromise();
+      .pipe(
+        map(data => {
+          return data.map(({message, type, creationDate}: Feedback) => {
+            return {
+              message,
+              type,
+              creationDate: Date(creationDate)
+            };
+          });
+        })
+      );
   };
 
   /**
