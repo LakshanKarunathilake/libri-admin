@@ -1,8 +1,6 @@
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Component, OnInit} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {firestore} from 'firebase';
-import {map} from 'rxjs/operators';
 import swal from 'sweetalert';
 @Component({
   selector: 'app-notifications',
