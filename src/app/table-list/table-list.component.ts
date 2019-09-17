@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AngularFireFunctions} from '@angular/fire/functions';
 
 @Component({
   selector: 'app-table-list',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table-list.component.css']
 })
 export class TableListComponent implements OnInit {
-
-  constructor() { }
+  registeredUsers;
+  constructor(private aff: AngularFireFunctions) {}
 
   ngOnInit() {
+    this.aff.functions
+      .httpsCallable('getRegisteredUsers')()
+      .then(data => {
+        console.log(data.data);
+        this.registeredUsers = data;
+      });
   }
-
 }
