@@ -1,5 +1,8 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {Feedback} from 'app/models/Feedbak';
+import {map, tap} from 'rxjs/operators';
+import '@firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +12,14 @@ export class OverallInfoService {
 
   /**
    * Retrieve feedbacks sent by the library users
+   * @returns { Observable }
    */
   getFeedbacks = () => {
-    return this.afs.collection('feedback');
+    return this.afs
+      .collection('Feedback')
+      .valueChanges()
+      .pipe()
+      .toPromise();
   };
 
   /**
