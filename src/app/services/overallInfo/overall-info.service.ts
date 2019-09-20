@@ -3,6 +3,7 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {Feedback} from 'app/models/Feedbak';
 import {map, tap} from 'rxjs/operators';
 import '@firebase/firestore';
+import {BookRequest} from 'app/models/BookRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -35,13 +36,13 @@ export class OverallInfoService {
    * Get book requests
    */
   getBookRequests = () => {
-    return this.afs.doc('users/{userID}/requests');
+    return this.afs.collectionGroup<BookRequest>('requests').valueChanges();
   };
 
   /**
    * Get paid penalty payments
    */
   getPenaltyPayments = () => {
-    return this.afs.doc('users/{userID}/penalties');
+    return this.afs.collection('users/{userID}/penalties');
   };
 }
