@@ -1,3 +1,31 @@
-<p>
-  book-requests works!
-</p>
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header card-header-info">
+        <h3 class="card-title">Book Requests</h3>
+        <p class="card-category">
+          All the book requests published by the
+        </p>
+      </div>
+      <div class="card-body">
+        <mat-card *ngFor="let bookRequest of bookRequests | async" style="margin-bottom: 8px;">
+          <div class="row">
+            <div class="col-sm-2">
+              <img [src]="bookRequest.file['imageURL']" class="book-cover" />
+            </div>
+            <div class="col-sm-10">
+              <div>{{ bookRequest.title }}</div>
+              <div>
+                <b>Authors</b> :
+                <span *ngFor="let author of bookRequest.authors">{{ author }}</span>
+              </div>
+              <hr />
+              <div>{{ bookRequest.description }}</div>
+              <div style="float: right"><button mat-raised-button>Approve</button></div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
