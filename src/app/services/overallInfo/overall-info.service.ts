@@ -24,7 +24,7 @@ export class OverallInfoService {
             return {
               message,
               type,
-              creationDate: Date(creationDate)
+              creationDate: new Date(creationDate['seconds'])
             };
           });
         })
