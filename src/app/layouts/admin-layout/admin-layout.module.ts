@@ -23,7 +23,8 @@ import {
   MatIconModule,
   MatTableModule,
   MatPaginatorModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatCardModule
 } from '@angular/material';
 import {UsersComponent} from 'app/components/users/users.component';
 import {BookRequestsComponent} from 'app/components/book-requests/book-requests.component';
@@ -42,6 +43,7 @@ import {BookRequestsComponent} from 'app/components/book-requests/book-requests.
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,
+    MatCardModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     AngularFireFunctionsModule
