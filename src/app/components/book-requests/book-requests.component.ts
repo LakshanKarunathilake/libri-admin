@@ -15,8 +15,4 @@ export class BookRequestsComponent implements OnInit {
   ngOnInit() {
     this.bookRequests = this.info.getBookRequests();
   }
-
-  obtainRequests = () => {
-    this.bookRequests = this.info.getBookRequests();
-  };
 }
