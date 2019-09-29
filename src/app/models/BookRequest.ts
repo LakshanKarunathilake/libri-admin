@@ -1,3 +1,5 @@
+import {DocumentReference} from '@angular/fire/firestore';
+
 export interface BookRequest {
   title: string;
   authors: Array<String>;
@@ -6,4 +8,5 @@ export interface BookRequest {
   file?: {
     imageURL: string;
   };
+  docRef?: DocumentReference;
 }
