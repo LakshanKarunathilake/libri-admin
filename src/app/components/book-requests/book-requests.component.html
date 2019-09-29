@@ -28,12 +28,15 @@
                 </div>
                 <div class="col-sm-6">
                   <div><b>ISBN</b> : {{ bookRequest.ISBN }}</div>
-                  <div style="float: right">
-                    <button mat-raised-button (click)="approveRequest(bookRequest.docRef)">
-                      Approve
-                    </button>
-                  </div>
                 </div>
+              </div>
+              <div style="float: right">
+                <button mat-raised-button (click)="approveRequest(bookRequest.docRef)">
+                  Approve
+                </button>
+                <button mat-raised-button color="warn" (click)="rejectRequest(bookRequest.docRef)">
+                  Reject
+                </button>
               </div>
               <hr />
             </div>

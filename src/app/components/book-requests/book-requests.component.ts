@@ -23,4 +23,10 @@ export class BookRequestsComponent implements OnInit {
     const request = docRef;
     request.update({status: 'Approved'});
   };
+
+  /**Approve a transfer Request */
+  rejectRequest = (docRef: DocumentReference) => {
+    const request = docRef;
+    request.update({status: 'Reject'});
+  };
 }
