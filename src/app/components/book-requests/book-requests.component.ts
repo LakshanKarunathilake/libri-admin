@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {OverallInfoService} from 'app/services/overallInfo/overall-info.service';
 import {BookRequest} from 'app/models/BookRequest';
 import {AngularFirestore, DocumentReference} from '@angular/fire/firestore';
+import {SwalService} from 'app/services/swal/swal.service';
 
 @Component({
   selector: 'app-book-requests',
@@ -11,7 +12,11 @@ import {AngularFirestore, DocumentReference} from '@angular/fire/firestore';
 })
 export class BookRequestsComponent implements OnInit {
   bookRequests: Observable<BookRequest[]>;
-  constructor(private info: OverallInfoService, private afs: AngularFirestore) {}
+  constructor(
+    private info: OverallInfoService,
+    private afs: AngularFirestore,
+    private swal: SwalService
+  ) {}
 
   ngOnInit() {
     this.bookRequests = this.info.getBookRequests();
@@ -27,6 +32,12 @@ export class BookRequestsComponent implements OnInit {
   /**Approve a transfer Request */
   rejectRequest = (docRef: DocumentReference) => {
     const request = docRef;
-    request.update({status: 'Reject'});
+    this.swal.displayConfirmation(
+      'Confirm',
+      'Do you want to reject the request if so please add a descripiton',
+      () => {
+        request.update({status: 'Reject'});
+      }
+    );
   };
 }
