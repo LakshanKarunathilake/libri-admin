@@ -38,4 +38,27 @@ export class SwalService {
       }
     });
   };
+
+  confirmMessageWithText = (title: string, description: string, callback: Function) => {
+    swal({
+      title: title,
+      text: description,
+      icon: 'warning',
+      content: {
+        element: 'input',
+        attributes: {
+          Placeholder: 'State the justification ...',
+          type: 'text',
+          required: 'required'
+        }
+      },
+      buttons: {
+        cancel: true,
+        confirm: true
+      }
+    }).then(ok => {
+      // console.log('ok', ok);
+      callback(ok);
+    });
+  };
 }
