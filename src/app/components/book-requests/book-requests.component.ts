@@ -64,9 +64,9 @@ export class BookRequestsComponent implements OnInit {
    * @param filterValue
    */
   applyFilter(filterValue: string) {
-    // this.dataSource.filter = filterValue.trim().toLowerCase();
-    // if (this.dataSource.paginator) {
-    //   this.dataSource.paginator.firstPage();
-    // }
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }
