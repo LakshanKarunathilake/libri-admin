@@ -36,7 +36,18 @@ export class OverallInfoService {
    * Get book requests
    */
   getBookRequests = () => {
-    return this.afs.collectionGroup<BookRequest>('requests').valueChanges();
+    return this.afs
+      .collectionGroup<BookRequest>('requests')
+      .snapshotChanges()
+      .pipe(
+        map(data =>
+          data.map(val => {
+            const info = val.payload.doc.data();
+            const docRef = val.payload.doc.ref;
+            return {docRef, ...info};
+          })
+        )
+      );
   };
 
   /**

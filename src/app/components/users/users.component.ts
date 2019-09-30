@@ -28,12 +28,10 @@ export class UsersComponent implements OnInit {
     this.aff.functions
       .httpsCallable('getRegisteredUsers')()
       .then(({data}) => {
-        console.log(data);
         // Adding the data to the data source for the table
         const users = Object.keys(data).map(key => data[key]);
         // Deactivating spinner
         this.isLoadingResults = false;
-        console.log('users', users);
         this.dataSource = new MatTableDataSource(users);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;

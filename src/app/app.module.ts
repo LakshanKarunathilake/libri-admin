@@ -13,6 +13,7 @@ import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.componen
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireFunctionsModule} from '@angular/fire/functions';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {SwalService} from './services/swal/swal.service';
 
 const firebase = {
   apiKey: 'AIzaSyDuPVBd60jVbPw1BRefZsTkWb2AXZsfzNk',
@@ -44,7 +45,7 @@ const firebase = {
     AngularFirestoreModule
   ],
   declarations: [AppComponent, AdminLayoutComponent, LoginComponent],
-  providers: [],
+  providers: [SwalService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
