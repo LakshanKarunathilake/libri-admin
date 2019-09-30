@@ -1,5 +1,4 @@
-import { Notice } from './../../models/Notice';
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import swal from 'sweetalert';
 
 @Injectable({
@@ -17,7 +16,10 @@ export class SwalService {
   };
 
   displayConfirmation = (title: string, description: string, callback: Function) => {
-    swal(title, description, 'warning', {
+    swal({
+      title: title,
+      text: description,
+      icon: 'warning',
       buttons: {
         cancel: true,
         confirm: true
@@ -32,15 +34,8 @@ export class SwalService {
       icon,
       timer,
       buttons: {
-        confirm: { visible: false }
+        confirm: {visible: false}
       }
     });
-  };
-
-  /**
-   * Preview the notices using a sweet alert
-   */
-  displayNotice = (notice: Notice) => {
-    swal({ title: notice.title, text: notice.message });
   };
 }
