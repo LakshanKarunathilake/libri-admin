@@ -23,20 +23,26 @@ export class BookRequestsComponent implements OnInit {
     // this.info.getBookRequests();
   }
 
-  /**Approve a transfer Request */
+  /** Approve a transfer Request
+   * If the library approves the request it doesn't need to contain a message
+   */
   approveRequest = (docRef: DocumentReference) => {
     const request = docRef;
     request.update({status: 'Approved'});
   };
 
-  /**Approve a transfer Request */
+  /** Reject a transfer Request
+   * Sometimes library have to reject a book request due to several reasons
+   * Users can track their request and what has happened to  the placement
+   */
   rejectRequest = (docRef: DocumentReference) => {
     const request = docRef;
-    this.swal.displayConfirmation(
+    this.swal.confirmMessageWithText(
       'Confirm',
       'Do you want to reject the request if so please add a descripiton',
-      () => {
-        request.update({status: 'Reject'});
+      message => {
+        console.log('value', message);
+        request.update({status: 'Rejected', message});
       }
     );
   };
