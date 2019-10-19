@@ -10,6 +10,8 @@ import {NotificationsComponent} from '../../notifications/notifications.componen
 import {UpgradeComponent} from '../../upgrade/upgrade.component';
 import {UsersComponent} from './../../components/users/users.component';
 import {BookRequestsComponent} from 'app/components/book-requests/book-requests.component';
+import {TransfersComponent} from 'app/components/transfers/transfers.component';
+import {ReservationsComponent} from 'app/components/reservations/reservations.component';
 
 export const AdminLayoutRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
@@ -21,5 +23,7 @@ export const AdminLayoutRoutes: Routes = [
   {path: 'notifications', component: NotificationsComponent},
   {path: 'upgrade', component: UpgradeComponent},
   {path: 'users', component: UsersComponent},
-  {path: 'bookrequests', component: BookRequestsComponent}
+  {path: 'bookrequests', component: BookRequestsComponent},
+  {path: 'reservations', component: ReservationsComponent},
+  {path: 'transfers', component: TransfersComponent}
 ];

@@ -28,6 +28,8 @@ import {
 } from '@angular/material';
 import {UsersComponent} from 'app/components/users/users.component';
 import {BookRequestsComponent} from 'app/components/book-requests/book-requests.component';
+import {TransfersComponent} from 'app/components/transfers/transfers.component';
+import {ReservationsComponent} from 'app/components/reservations/reservations.component';
 
 @NgModule({
   imports: [
@@ -58,7 +60,9 @@ import {BookRequestsComponent} from 'app/components/book-requests/book-requests.
     NotificationsComponent,
     UpgradeComponent,
     UsersComponent,
-    BookRequestsComponent
+    BookRequestsComponent,
+    TransfersComponent,
+    ReservationsComponent
   ]
 })
 export class AdminLayoutModule {}
