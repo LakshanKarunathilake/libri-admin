@@ -12,6 +12,7 @@ export const ROUTES: RouteInfo[] = [
   {path: '/users', title: 'User Information', icon: 'person', class: ''},
   {path: '/bookrequests', title: 'New book Requests', icon: 'shopping_basket', class: ''},
   {path: '/notifications', title: 'Notifications', icon: 'notifications', class: ''},
+  {path: '/reservations', title: 'Reservations', icon: 'add_shopping_cart', class: ''},
   {path: '/transfers', title: 'Transfers', icon: 'swap_vert', class: ''}
 ];
 

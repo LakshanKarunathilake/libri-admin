@@ -29,6 +29,7 @@ import {
 import {UsersComponent} from 'app/components/users/users.component';
 import {BookRequestsComponent} from 'app/components/book-requests/book-requests.component';
 import {TransfersComponent} from 'app/components/transfers/transfers.component';
+import {ReservationsComponent} from 'app/components/reservations/reservations.component';
 
 @NgModule({
   imports: [
@@ -60,7 +61,8 @@ import {TransfersComponent} from 'app/components/transfers/transfers.component';
     UpgradeComponent,
     UsersComponent,
     BookRequestsComponent,
-    TransfersComponent
+    TransfersComponent,
+    ReservationsComponent
   ]
 })
 export class AdminLayoutModule {}
