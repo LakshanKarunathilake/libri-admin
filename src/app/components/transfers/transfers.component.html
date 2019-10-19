@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="card">
       <div class="card-header card-header-success">
-        <h3 class="card-title">Book Transfers</h3>
+        <h3 class="card-title">All Book Transfers</h3>
         <p class="card-category">
           User demands for book transfers can be listed in here
         </p>
@@ -16,7 +16,7 @@
           <div class="example-loading-shade" *ngIf="isLoadingResults">
             <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
           </div>
-          <table mat-table [dataSource]="dataSource" matSort style="width: 100%">
+          <table mat-table [dataSource]="allTransfers" matSort style="width: 100%">
             <!-- ID Column -->
             <ng-container matColumnDef="issue_id">
               <th mat-header-cell *matHeaderCellDef mat-sort-header>issue_id</th>
@@ -57,8 +57,88 @@
               </td>
             </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            <tr mat-header-row *matHeaderRowDef="allTransferColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: allTransferColumns"></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header card-header-success">
+        <h3 class="card-title">To be Approved</h3>
+        <p class="card-category">
+          User demands for book transfers can be listed in here
+        </p>
+      </div>
+      <div class="card-body">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+        </mat-form-field>
+
+        <div>
+          <div class="example-loading-shade" *ngIf="isLoadingResults">
+            <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+          </div>
+          <table mat-table [dataSource]="toTransfers" matSort style="width: 100%">
+            <!-- ID Column -->
+            <ng-container matColumnDef="issue_id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>issue_id</th>
+              <td mat-cell *matCellDef="let row">{{ row.issue_id }}</td>
+            </ng-container>
+
+            <!-- Progress Column -->
+            <ng-container matColumnDef="title">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+              <td mat-cell *matCellDef="let row">{{ row.title }}</td>
+            </ng-container>
+
+            <!-- Color Column -->
+            <ng-container matColumnDef="date_due">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Due date</th>
+              <td mat-cell *matCellDef="let row" [style.color]="row.color">
+                {{ row.date_due }}
+              </td>
+            </ng-container>
+            <!-- Last Login Column -->
+            <ng-container matColumnDef="issuedate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Issue Date</th>
+              <td mat-cell *matCellDef="let row" [style.color]="row.color">
+                {{ row.issuedate }}
+              </td>
+            </ng-container>
+
+            <!-- Created Column -->
+            <ng-container matColumnDef="sender">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Sender</th>
+              <td mat-cell *matCellDef="let row" [style.color]="row.color">
+                {{ row.sednder }}
+              </td>
+            </ng-container>
+            <!-- Created Column -->
+            <ng-container matColumnDef="receiver">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Receiever</th>
+              <td mat-cell *matCellDef="let row" [style.color]="row.color">
+                {{ row.receiver }}
+              </td>
+            </ng-container>
+
+            <!-- Action Column -->
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+              <td mat-cell *matCellDef="let row" [style.color]="row.color">
+                <button mat-raised-button (click)="approveTransfer(row.docRef)">
+                  Approve
+                </button>
+                <button mat-raised-button color="warn" (click)="rejectTransfer(row.docRef)">
+                  Reject
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="toTransferColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: toTransferColumns"></tr>
           </table>
 
           <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
