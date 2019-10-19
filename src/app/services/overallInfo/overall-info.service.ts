@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {AngularFirestore} from '@angular/fire/firestore';
+import {AngularFirestore, DocumentReference} from '@angular/fire/firestore';
 import {Feedback} from 'app/models/Feedbak';
 import {map, tap} from 'rxjs/operators';
 import '@firebase/firestore';
@@ -63,6 +63,17 @@ export class OverallInfoService {
    * Some attempts can be successfull attempts where two users participate and officials only need to accept it
    */
   getTransferRequests = () => {
-    return this.afs.collectionGroup<Transfer>('transfers').valueChanges();
+    return this.afs
+      .collectionGroup<Transfer>('transfers')
+      .snapshotChanges()
+      .pipe(
+        map(data =>
+          data.map(val => {
+            const info = val.payload.doc.data();
+            const docRef = val.payload.doc.ref;
+            return {docRef, ...info};
+          })
+        )
+      );
   };
 }
