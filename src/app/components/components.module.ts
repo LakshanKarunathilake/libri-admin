@@ -5,10 +5,11 @@ import {RouterModule} from '@angular/router';
 import {FooterComponent} from './footer/footer.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {SidebarComponent} from './sidebar/sidebar.component';
+import { ReservationsComponent } from './reservations/reservations.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [FooterComponent, NavbarComponent, SidebarComponent],
+  declarations: [FooterComponent, NavbarComponent, SidebarComponent, ReservationsComponent],
   exports: [FooterComponent, NavbarComponent, SidebarComponent]
 })
 export class ComponentsModule {}
