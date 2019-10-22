@@ -3,12 +3,17 @@ import {Admin} from 'app/models/AdminUser';
 import * as bcrypt from 'bcryptjs';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {SwalService} from '../swal/swal.service';
+import {AngularFireFunctions} from '@angular/fire/functions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
-  constructor(private afs: AngularFirestore, private swal: SwalService) {}
+  constructor(
+    private afs: AngularFirestore,
+    private swal: SwalService,
+    private aff: AngularFireFunctions
+  ) {}
 
   /**
    * Register User for inital use
@@ -75,5 +80,13 @@ export class AdminService {
   logout = () => {
     window.localStorage.clear();
     this.swal.viewSuccessMessage('Success', 'Successfully logout from the dashboard');
+  };
+
+  /**
+   * Change state of the user details
+   */
+  changeUserActiveness = (uid, state) => {
+    const enableOrDisableUser = this.aff.functions.httpsCallable('enableOrDisableUser');
+    return enableOrDisableUser({uid, state});
   };
 }

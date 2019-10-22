@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource, MatSort} from '@angular/material';
 import {AngularFireFunctions} from '@angular/fire/functions';
+import {AdminService} from 'app/services/admin/admin.service';
+import {SwalService} from 'app/services/swal/swal.service';
 export interface UserData {
   email: string;
   name: string;
@@ -21,9 +23,39 @@ export class UsersComponent implements OnInit {
   isLoadingResults = true;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private aff: AngularFireFunctions) {}
+  constructor(
+    private aff: AngularFireFunctions,
+    private admin: AdminService,
+    private swal: SwalService
+  ) {}
 
   ngOnInit() {
+    this.getUsers();
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  changeUserState = (uid, changeTo) => {
+    this.admin
+      .changeUserActiveness(uid, changeTo)
+      .then(() => {
+        console.log(`Success in ${uid} transfer to ${changeTo}`);
+        this.swal.viewSuccessMessage('Success', `User id ${uid} is successfully ${changeTo}ed`);
+        this.getUsers();
+      })
+      .catch(err => {
+        console.log('err', err);
+        this.swal.viewErrorMessage('Error', `Change state failed please try again`);
+      });
+  };
+
+  getUsers = () => {
     // Calling the cloud functions to retrieve the user details of the registered users
     this.aff.functions
       .httpsCallable('getRegisteredUsers')()
@@ -36,13 +68,5 @@ export class UsersComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       });
-  }
-
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
+  };
 }
