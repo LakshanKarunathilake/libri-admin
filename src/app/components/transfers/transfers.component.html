@@ -128,7 +128,11 @@
             <ng-container matColumnDef="status">
               <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
               <td mat-cell *matCellDef="let row" [style.color]="row.color">
-                <button mat-raised-button (click)="approveTransfer(row.docRef)">
+                <button
+                  mat-raised-button
+                  (click)="approveTransfer(row.docRef)"
+                  style="background-color: greenyellow;"
+                >
                   Approve
                 </button>
                 <button mat-raised-button color="warn" (click)="rejectTransfer(row.docRef)">
