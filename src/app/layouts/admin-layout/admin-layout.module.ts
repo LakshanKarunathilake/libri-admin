@@ -30,6 +30,7 @@ import {UsersComponent} from 'app/components/users/users.component';
 import {BookRequestsComponent} from 'app/components/book-requests/book-requests.component';
 import {TransfersComponent} from 'app/components/transfers/transfers.component';
 import {ReservationsComponent} from 'app/components/reservations/reservations.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   imports: [
@@ -48,7 +49,8 @@ import {ReservationsComponent} from 'app/components/reservations/reservations.co
     MatCardModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    AngularFireFunctionsModule
+    AngularFireFunctionsModule,
+    MatExpansionModule
   ],
   declarations: [
     DashboardComponent,
