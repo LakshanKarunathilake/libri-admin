@@ -14,6 +14,9 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireFunctionsModule} from '@angular/fire/functions';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {SwalService} from './services/swal/swal.service';
+import {MatTabsModule} from '@angular/material/tabs';
+import {AdminService} from './services/admin/admin.service';
+import { AuthGuard } from './guards/auth-guard.service';
 
 const firebase = {
   apiKey: 'AIzaSyDuPVBd60jVbPw1BRefZsTkWb2AXZsfzNk',
@@ -42,10 +45,11 @@ const firebase = {
     MatButtonModule,
     AngularFireModule.initializeApp(firebase),
     AngularFireFunctionsModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatTabsModule
   ],
   declarations: [AppComponent, AdminLayoutComponent, LoginComponent],
-  providers: [SwalService],
+  providers: [SwalService, AdminService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
