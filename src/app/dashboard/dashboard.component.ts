@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import * as Chartist from 'chartist';
 import {OverallInfoService} from 'app/services/overallInfo/overall-info.service';
 import {Observable} from 'rxjs';
-import {Feedback} from 'app/models/Feedbak';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +11,16 @@ import {Feedback} from 'app/models/Feedbak';
 })
 export class DashboardComponent implements OnInit {
   feedbacks;
-  constructor(private overallInfo: OverallInfoService) {}
+  registrationCount: Observable<any>;
+  loginCount: Observable<any>;
+  constructor(private overallInfo: OverallInfoService) {
+    this.registrationCount = this.overallInfo.getCounter('register');
+    this.loginCount = this.overallInfo.getCounter('login').pipe(
+      tap(val => {
+        console.log('val', val);
+      })
+    );
+  }
   startAnimationForLineChart(chart) {
     let seq: any, delays: any, durations: any;
     seq = 0;
