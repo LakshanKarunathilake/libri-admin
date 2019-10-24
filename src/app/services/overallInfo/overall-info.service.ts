@@ -78,6 +78,14 @@ export class OverallInfoService {
       );
   };
 
+  /**
+   * Obtain transfer attempts by users
+   * Some attempts can be successfull attempts where two users participate and officials only need to accept it
+   */
+  getTransfers = () => {
+    return this.afs.collectionGroup<Transfer>('transfers').valueChanges();
+  };
+
   getCounter = counterName => {
     const date = new Date();
     date.setDate(date.getDate() - 1);
