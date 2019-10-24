@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
-import {AngularFirestore, DocumentReference} from '@angular/fire/firestore';
+import {AngularFirestore} from '@angular/fire/firestore';
 import {Feedback} from 'app/models/Feedbak';
 import {map, tap} from 'rxjs/operators';
 import '@firebase/firestore';
 import {BookRequest} from 'app/models/BookRequest';
 import {Transfer} from 'app/models/Transfer';
+import {Counter} from 'app/models/Counter';
 
 @Injectable({
   providedIn: 'root'
@@ -74,6 +75,28 @@ export class OverallInfoService {
             return {docRef, ...info};
           })
         )
+      );
+  };
+
+  getCounter = counterName => {
+    const date = new Date();
+    date.setDate(date.getDate() - 1);
+    console.log('date', date);
+    const formatted_date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    console.log('formatted_date', formatted_date);
+    return this.afs
+      .collection('admin')
+      .doc('counters')
+      .collection(counterName)
+      .doc<Counter>(formatted_date)
+      .valueChanges()
+      .pipe(
+        map(val => {
+          if (val) {
+            return val.count;
+          }
+          return 0;
+        })
       );
   };
 }
