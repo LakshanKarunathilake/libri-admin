@@ -71,47 +71,64 @@
           </div>
       </div>
       <div class="row">
-          <div class="col-md-4">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats">
+                        <div class="card-header  card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">transfer_within_a_station</i>
+                            </div>
+                            <p class="card-category">Transfers</p>
+                            <div style="display: flex;justify-content: flex-end;color: black;align-items: center;">
+                                <h4>Requests : </h4><h3 class="card-title">&nbsp;&nbsp;&nbsp;{{transferRequestCount | async}}</h3>
+                            </div>
+                            <div style="display: flex;justify-content: flex-end;color: black;align-items: center;">
+                                <h4>Accepts : </h4><h3 class="card-title">&nbsp;&nbsp;&nbsp;{{transferAcceptCount | async}}</h3>
+                            </div>
+                            <mat-spinner *ngIf="!loginCount" style="margin: 0 auto;"></mat-spinner>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="material-icons">update</i> Just Updated
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats">
+                        <div class="card-header card-header-primary card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">search</i>
+                            </div>
+                            <p class="card-category">Search</p>
+                            <h3 class="card-title">{{searchCount | async}}</h3>
+                            <mat-spinner *ngIf="!loginCount" style="margin: 0 auto;"></mat-spinner>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="material-icons">update</i> Just Updated
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          <div class="col-lg-6 col-md-6">
               <div class="card card-chart">
                   <div class="card-header card-header-success">
                       <div class="ct-chart" id="dailySalesChart"></div>
                   </div>
                   <div class="card-body">
-                      <h4 class="card-title">Daily Users</h4>
+                      <h4 class="card-title">Weekly Report</h4>
                   </div>
                   <div class="card-footer">
-                      <div class="stats">
-                          <i class="material-icons">access_time</i> updated 4 minutes ago
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <div class="card card-chart">
-                  <div class="card-header card-header-warning">
-                      <div class="ct-chart" id="websiteViewsChart"></div>
-                  </div>
-                  <div class="card-body">
-                      <h4 class="card-title">Function invocations</h4>
-                      <p class="card-category">How the functions are called</p>
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <i class="material-icons">access_time</i> updated 4 minutes ago
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <div class="card card-chart">
-                  <div class="card-header card-header-danger">
-                      <div class="ct-chart" id="completedTasksChart"></div>
-                  </div>
-                  <div class="card-body">
-                      <h4 class="card-title">Active users</h4>
-                      <p class="card-category">Active users in hours</p>
-                  </div>
-                  <div class="card-footer">
+                        <mat-form-field>
+                                <mat-label>Stat</mat-label>
+                                <select matNativeControl required [(ngModel)]="statSelection" (change)="redrawChart()">
+                                  <option value="registration">Registrations</option>
+                                  <option value="login">Logins</option>
+                                  <option value="search">Searches</option>
+                                  <option value="transferReqeust">Transfer Requests</option>
+                                  <option value="transferAccept">Transfer Accepts</option>
+                                </select>
+                        </mat-form-field>
                       <div class="stats">
                           <i class="material-icons">access_time</i> updated 4 minutes ago
                       </div>
@@ -127,8 +144,14 @@
                           <div class="nav-tabs-wrapper">
                               <span class="nav-tabs-title">Tasks:</span>
                               <ul class="nav nav-tabs" data-tabs="tabs">
+                                    <li class="nav-item">
+                                            <a mat-button class="nav-link active" href="#feedbacks" data-toggle="tab">
+                                                <i class="material-icons">message</i> Feedbacks
+                                                <div class="ripple-container"></div>
+                                            </a>
+                                    </li>
                                   <li class="nav-item">
-                                      <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                                      <a mat-button class="nav-link " href="#profile" data-toggle="tab">
                                           <i class="material-icons">bug_report</i> Bugs
                                           <div class="ripple-container"></div>
                                       </a>
@@ -139,19 +162,14 @@
                                           <div class="ripple-container"></div>
                                       </a>
                                   </li>
-                                  <li class="nav-item">
-                                      <a mat-button class="nav-link" href="#settings" data-toggle="tab">
-                                          <i class="material-icons">cloud</i> Feedbacks
-                                          <div class="ripple-container"></div>
-                                      </a>
-                                  </li>
+                                 
                               </ul>
                           </div>
                       </div>
                   </div>
                   <div class="card-body">
                       <div class="tab-content">
-                          <div class="tab-pane active" id="profile">
+                          <div class="tab-pane" id="profile">
                               <table class="table">
                                   <tbody>
                                       <tr>
@@ -291,8 +309,9 @@
                                   </tbody>
                               </table>
                           </div>
-                          <div class="tab-pane" id="settings">
-                            <div class="card-body table-responsive">
+                          <div class="tab-pane active" id="feedbacks" >
+                            <mat-spinner *ngIf="!feedbacks"></mat-spinner>
+                            <div class="card-body table-responsive" *ngIf="feedbacks">
                                 <table class="table table-hover">
                                     <thead class="text-warning">
                                         <th>Type</th>
@@ -318,7 +337,7 @@
           <div class="col-lg-6 col-md-12">
               <div class="card">
                   <div class="card-header card-header-warning">
-                      <h4 class="card-title">Book Requests</h4>
+                      <h4 class="card-title">Book Transfers</h4>
                       <p class="card-category">Information about the book transfer requests</p>
                   </div>
                   <div class="card-body table-responsive">
@@ -326,29 +345,14 @@
                           <thead class="text-warning">
                               <th>Sender</th>
                               <th>Receiver</th>
-                              <th>Accepted</th>
-                              <th>Approved</th>
+                              <th>Status</th>
                           </thead>
                           <tbody>
-                              <tr>
-                                  <td>SE/2014/041</td>
-                                  <td>SE/2014/019</td>
-                                  <td>YES</td>
-                                  <td>NO</td>
+                              <tr *ngFor="let transfer of transfers | async">
+                                  <td>{{transfer.sender}}</td>
+                                  <td>{{transfer.receiver}}</td>
+                                  <td>{{transfer.status}}</td>
                               </tr>
-                              <tr>
-                                  <td>SE/2014/014</td>
-                                  <td>SE/2014/029</td>
-                                  <td>YES</td>
-                                  <td>YES</td>
-                              </tr>
-                              <tr>
-                                  <td>SE/2014/016</td>
-                                  <td>SE/2014/003</td>
-                                  <td>YES</td>
-                                  <td>YES</td>
-                              </tr>
-                              
                           </tbody>
                       </table>
                   </div>
