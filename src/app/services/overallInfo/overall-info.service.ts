@@ -107,4 +107,30 @@ export class OverallInfoService {
         })
       );
   };
+
+  getOverallCounters = type => {
+    return new Promise((resolve, reject) => {
+      this.afs
+        .collection('admin')
+        .doc('counters')
+        .collection(type)
+        .snapshotChanges()
+        .subscribe(
+          data => {
+            const days = ['Su', 'M', 'T', 'W', 'T', 'F', 'S'];
+            const series = [[0, 0, 0, 0, 0, 0, 0]];
+            data.forEach(val => {
+              const counter = val.payload.doc.data() as Counter;
+              const date_number = new Date(val.payload.doc.id).getDay();
+              series[0][date_number] = counter.count;
+            });
+            resolve({
+              labels: days,
+              series
+            });
+          },
+          err => reject(err)
+        );
+    });
+  };
 }
