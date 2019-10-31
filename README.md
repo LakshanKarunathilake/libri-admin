@@ -32,6 +32,8 @@
 - Any library have existing system can plug this application if the current system is based on Koha Library Management System or Ever green library system
 - Library staff can embed a brief introduction about the statistics of the library
 
+[![Dashboard](https://firebasestorage.googleapis.com/v0/b/libri-238805.appspot.com/o/dashbaord.PNG?alt=media&token=64caa564-3e60-4255-aa0f-2fec565f56ef 'Dashboard')](https://firebasestorage.googleapis.com/v0/b/libri-238805.appspot.com/o/dashbaord.PNG?alt=media&token=64caa564-3e60-4255-aa0f-2fec565f56ef 'Dashboard')
+
 ## Abstract
 
 The world has become a place full of technological and computerized components. Everything is getting automated and thanks to the vast development of Information and Communication Technology, people tend to automate the day to day activities, business, health, education and other services in order get things done efficiently.
@@ -113,4 +115,4 @@ The above features must be enabled prior to the installation. The sample configu
 
 ---
 
-** Special Thanks for Creative Team for Open Source Angular Dashboard **
+**Special Thanks for Creative Team for Open Source Angular Dashboard**
