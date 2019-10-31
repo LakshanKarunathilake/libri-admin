@@ -1,183 +1,118 @@
-# [Material Dashboard Angular - Free Bootstrap Material Design Admin](https://www.creative-tim.com/product/material-dashboard-angular2)[![version][version-badge]][CHANGELOG]
+<p align="center">
+  <img width="460" " src="https://firebasestorage.googleapis.com/v0/b/libri-238805.appspot.com/o/libri%20logo.png?alt=media&token=bec48934-d1c2-467f-b6d3-af1538aecaeb" />
+</p>
 
-![alt text](http://s3.amazonaws.com/creativetim_bucket/products/53/original/opt_md_angular_thumbnail.jpg "Material Dashboard Angular Free")
+# Remote Library Manager
 
-**[Material Dashboard Angular](https://www.creative-tim.com/product/material-dashboard-angular2/)** is a free Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design. We are very excited to introduce our take on the material concepts through an easy to use and beautiful set of components. Material Dashboard was built over the popular Bootstrap framework and it comes with a couple of third-party plugins redesigned to fit in with the rest of the elements.
+![](https://img.shields.io/github/issues/LakshanKarunathilake/libri-admin)
+![](https://img.shields.io/github/forks/LakshanKarunathilake/libri-admin)
+![](https://img.shields.io/github/stars/LakshanKarunathilake/libri-admin) ![](https://img.shields.io/github/license/LakshanKarunathilake/libri-admin)
+![](https://img.shields.io/github/repo-size/lakshankarunathilake/libri-admin)
 
-Material Dashboard makes use of light, surface and movement. The general layout resembles sheets of paper following multiple different layers, so that the depth and order is obvious. The navigation stays mainly on the left sidebar and the content is on the right inside the main panel.
+## Technologies
 
-This product came as a result of users asking for a material dashboard after we released our successful [Material Kit](http://www.creative-tim.com/product/material-kit). We developed it based on your feedback and it is a powerful bootstrap admin dashboard, which allows you to build products like admin panels, content managements systems and CRMs.
+<p align="center" > 
+  <img width="100" " src="https://angular.io/assets/images/logos/angular/angular.png" />
+    <img width="150" " src="https://raw.githubusercontent.com/t4t5/sweetalert/e3c2085473a0eb5a6b022e43eb22e746380bb955/assets/logotype.png" />
+<img width="80" " src="https://firebase.google.com/downloads/brand-guidelines/PNG/logo-vertical.png" />
 
-Material Dashboard comes with 5 color filter choices for both the sidebar and the card headers (blue, green, orange, red and purple) and an option to have a background image on the sidebar.
+</p>
 
-Material Dashboard uses a framework built by our friend [Federico - Bootstrap Material Design](http://fezvrasta.github.io/bootstrap-material-design/), who did an amazing job creating the backbone for the material effects, animations, ripples and transitions. Big thanks to his team for the effort and forward thinking they put into it.
+## Features
 
-Special thanks go to:
-[Robert McIntosh](https://github.com/mouse0270/bootstrap-notify) for the notification system.
-[Chartist](https://gionkunz.github.io/chartist-js/) for the wonderful charts.
-We are very excited to share this dashboard with you and we look forward to hearing your feedback!
+- Cross platform mobile abbpplication based on Ionic Version 4.0
+- Associated with a supportive dashboard called Libri-Admin
+- All your library users can use the the library applications remo-tely
+- New transfer capability between users without visiting the library
+- Checking the books and the availability of books can be checked without visiting the library
+- Users can transfer books without visiting the library
+- Users can pay the penalties if the library authorized personal grant the permission
+- Users will be able to receive the notices digitally and efficiently
+- Any library have existing system can plug this application if the current system is based on Koha Library Management System or Ever green library system
+- Library staff can embed a brief introduction about the statistics of the library
 
-You can find the Github Repo here.
+## Abstract
 
-## Links:
+The world has become a place full of technological and computerized components. Everything is getting automated and thanks to the vast development of Information and Communication Technology, people tend to automate the day to day activities, business, health, education and other services in order get things done efficiently.
 
-+ [Live Preview](https://www.creative-tim.com/product/material-dashboard-angular2)
-+ [Material Kit - For Front End Development](http://www.creative-tim.com/product/material-kit?ref=github-md-angular)
+> “A library is a collection of sources of information and similar resources, made accessible to a defined community for reference or borrowing”.
 
-## Quick start
+> <p align="right">-Wikipedia </p>
 
-Quick start options:
+Library is the place the easiest source of knowledge distributed all around the world. Modern libraries are providing a large number of services to distribute the knowledge gathered in the premises. Some libraries are having millions of books and the number of books yearly produce is also millions. Early days, people visit the library premise and search through the cupboards and may take the librarians assistance or else some others. But these libraries only had a limited number of books and a limited number of interested parties. These days libraries have different sections reserved for different services and the number of users is large in numbers. So these libraries need much efficient and effective mechanism to provide a better service to the library service which could not be done by only having staff.
+There are several Library Management Systems implemented by different parties in the world. Some are Closed Source and some are Open Source. Typically, Libraries are non-profitable organizations, so these organizations generally go for free applications. Most of these systems are in need of a mobile application solution
+“Libri” is an Open Source mobile application assistant. The purpose of this project is to assist to the library services outside of the premises. The system is already implemented and any interested party can take the system and change the configurations according to the need and host them. The cost for the system will only be for the hosting and the application can be deployed to Android, iOS, Windows, Mac OS. Implementation is based on the Ionic and Firebase with support of React dashboard. Libri will be attractive and user-friendly while providing the services. This will help libraries to provide better service efficiently.
 
-- [Download from Github](https://github.com/tiniestory/material-dashboard-angular2/archive/master.zip).
-- [Download from Creative Tim](http://www.creative-tim.com/product/material-dashboard-angular2).
+## System sub components
 
-## Terminal Commands
+To work on the dashboard there are two other sub components [Libri-App](https://github.com/LakshanKarunathilake/libri-app) and a backend server with server deployed according to the serverless architecture called [server](https://github.com/LakshanKarunathilake/Libri-server)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0 and angular 4.x.
+### Installation Guide
 
-1. Install NodeJs from [NodeJs Official Page](https://nodejs.org/en).
-2. Open Terminal
-3. Go to your file project
-4. Make sure you have installed [Angular CLI](https://github.com/angular/angular-cli) already. If not, please install.
-5. Run in terminal: ```npm install```
-6. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+** Pre-requisits**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+| Tool | Version   |
+| ---- | --------- |
+| Node | 10.11 LTS |
+| npm  | 6.4.1     |
 
-### What's included
+#### 1. Install Dependencies
 
-Within the download you'll find the following directories and files:
-
-```
-material-dashboard-angular
-├── CHANGELOG.md
-├── LICENSE.md
-├── README.md
-├── angular-cli.json
-├── documentation
-├── e2e
-├── karma.conf.js
-├── package-lock.json
-├── package.json
-├── protractor.conf.js
-├── src
-│   ├── app
-│   │   ├── app.component.css
-│   │   ├── app.component.html
-│   │   ├── app.component.spec.ts
-│   │   ├── app.component.ts
-│   │   ├── app.module.ts
-│   │   ├── app.routing.ts
-│   │   ├── components
-│   │   │   ├── components.module.ts
-│   │   │   ├── footer
-│   │   │   │   ├── footer.component.css
-│   │   │   │   ├── footer.component.html
-│   │   │   │   ├── footer.component.spec.ts
-│   │   │   │   └── footer.component.ts
-│   │   │   ├── navbar
-│   │   │   │   ├── navbar.component.css
-│   │   │   │   ├── navbar.component.html
-│   │   │   │   ├── navbar.component.spec.ts
-│   │   │   │   └── navbar.component.ts
-│   │   │   └── sidebar
-│   │   │       ├── sidebar.component.css
-│   │   │       ├── sidebar.component.html
-│   │   │       ├── sidebar.component.spec.ts
-│   │   │       └── sidebar.component.ts
-│   │   ├── dashboard
-│   │   │   ├── dashboard.component.css
-│   │   │   ├── dashboard.component.html
-│   │   │   ├── dashboard.component.spec.ts
-│   │   │   └── dashboard.component.ts
-│   │   ├── icons
-│   │   │   ├── icons.component.css
-│   │   │   ├── icons.component.html
-│   │   │   ├── icons.component.spec.ts
-│   │   │   └── icons.component.ts
-│   │   ├── layouts
-│   │   │   └── admin-layout
-│   │   │       ├── admin-layout.component.html
-│   │   │       ├── admin-layout.component.scss
-│   │   │       ├── admin-layout.component.spec.ts
-│   │   │       ├── admin-layout.component.ts
-│   │   │       ├── admin-layout.module.ts
-│   │   │       └── admin-layout.routing.ts
-│   │   ├── maps
-│   │   │   ├── maps.component.css
-│   │   │   ├── maps.component.html
-│   │   │   ├── maps.component.spec.ts
-│   │   │   └── maps.component.ts
-│   │   ├── notifications
-│   │   │   ├── notifications.component.css
-│   │   │   ├── notifications.component.html
-│   │   │   ├── notifications.component.spec.ts
-│   │   │   └── notifications.component.ts
-│   │   ├── table-list
-│   │   │   ├── table-list.component.css
-│   │   │   ├── table-list.component.html
-│   │   │   ├── table-list.component.spec.ts
-│   │   │   └── table-list.component.ts
-│   │   ├── typography
-│   │   │   ├── typography.component.css
-│   │   │   ├── typography.component.html
-│   │   │   ├── typography.component.spec.ts
-│   │   │   └── typography.component.ts
-│   │   ├── upgrade
-│   │   │   ├── upgrade.component.css
-│   │   │   ├── upgrade.component.html
-│   │   │   ├── upgrade.component.spec.ts
-│   │   │   └── upgrade.component.ts
-│   │   └── user-profile
-│   │       ├── user-profile.component.css
-│   │       ├── user-profile.component.html
-│   │       ├── user-profile.component.spec.ts
-│   │       └── user-profile.component.ts
-│   ├── assets
-│   │   ├── css
-│   │   │   └── demo.css
-│   │   ├── img
-│   │   └── scss
-│   │       ├── core
-│   │       └── material-dashboard.scss
-│   ├── environments
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── main.ts
-│   ├── polyfills.ts
-│   ├── styles.css
-│   ├── test.ts
-│   ├── tsconfig.app.json
-│   ├── tsconfig.spec.json
-│   └── typings.d.ts
-├── tsconfig.json
-├── tslint.json
-└── typings
-
+```sh
+$ npm install
 ```
 
-## Useful Links
+#### 2. Start Application
 
-More products from Creative Tim: <http://www.creative-tim.com/bootstrap-themes>
+```sh
+$ npm start
+```
 
-Tutorials: <https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w>
+This will launch an application preview inside your preffered browser
 
-Freebies: <http://www.creative-tim.com/products>
+#### Run test cases
 
-Affiliate Program (earn money): <http://www.creative-tim.com/affiliates/new>
+```sh
+$ npm test
+```
 
-Social Media:
+#### Build application using angular
 
-Twitter: <https://twitter.com/CreativeTim>
+```sh
+$ npm run build
+```
 
-Facebook: <https://www.facebook.com/CreativeTim>
+#### Replacing firebase configurations
 
-Dribbble: <https://dribbble.com/creativetim>
+You can find the firebase configurations in the directory src/environments/environment.prod.ts for production builds or else src/environments/environment.ts
 
-Google+: <https://plus.google.com/+CreativetimPage>
+Before replacing the firebase configurations you have to make sure you have created a project using firebase console and enabled the features
 
-Instagram: <https://instagram.com/creativetimofficial>
+- Firebase Cloud Messaging
+- Firebase Cloud Functions
+- Firebase Anlaytics for Web
+- Firebase Crashlytics
+- Firebase Performance
+- Firebase Storage bucket
 
-[CHANGELOG]: ./CHANGELOG.md
+The above features must be enabled prior to the installation. The sample configuration file will be as below. This is for the web development. Refer the android area for your android implmentation
 
-[version-badge]: https://img.shields.io/badge/version-2.2.0-blue.svg
+```javascript
+	 firebase: {
+		apiKey: 'TEST _KEY',
+		authDomain: 'TEST _KEY',
+		databaseURL: 'TEST _KEY',
+		projectId: 'TEST _KEY',
+		storageBucket: 'TEST _KEY',
+		messagingSenderId: 'TEST _KEY',
+		appId: 'TEST _KEY',
+		measurementId: 'TEST _KEY'
+  }
+```
+
+Additionally you have to add the google-servises.json file which you can download from the firebase console to use the services in the android application.
+
+This **google-services.json** file should be in the directory of **android/app/**
+
+[dashboard]: https://github.com/LakshanKarunathilake/libri-admin 'Libri-Admin'
+[server]: https://github.com/LakshanKarunathilake/Libri-server 'Libri-server'
