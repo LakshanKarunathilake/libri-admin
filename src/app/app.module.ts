@@ -17,17 +17,7 @@ import {SwalService} from './services/swal/swal.service';
 import {MatTabsModule} from '@angular/material/tabs';
 import {AdminService} from './services/admin/admin.service';
 import {AuthGuard} from './guards/auth-guard.service';
-
-const firebase = {
-  apiKey: 'AIzaSyDuPVBd60jVbPw1BRefZsTkWb2AXZsfzNk',
-  authDomain: 'libri-238805.firebaseapp.com',
-  databaseURL: 'https://libri-238805.firebaseio.com',
-  projectId: 'libri-238805',
-  storageBucket: 'libri-238805.appspot.com',
-  messagingSenderId: '696789073783',
-  appId: '1:696789073783:web:3579e974bc60674c',
-  measurementId: 'G-D5R7Q086CT'
-};
+import {environment} from 'environments/environment';
 
 @NgModule({
   imports: [
@@ -44,7 +34,7 @@ const firebase = {
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    AngularFireModule.initializeApp(firebase),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireFunctionsModule,
     AngularFirestoreModule,
     MatTabsModule
