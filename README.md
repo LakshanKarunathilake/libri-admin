@@ -37,7 +37,7 @@
 The world has become a place full of technological and computerized components. Everything is getting automated and thanks to the vast development of Information and Communication Technology, people tend to automate the day to day activities, business, health, education and other services in order get things done efficiently.
 
 > “A library is a collection of sources of information and similar resources, made accessible to a defined community for reference or borrowing”.
-
+>
 > <p align="right">-Wikipedia </p>
 
 Library is the place the easiest source of knowledge distributed all around the world. Modern libraries are providing a large number of services to distribute the knowledge gathered in the premises. Some libraries are having millions of books and the number of books yearly produce is also millions. Early days, people visit the library premise and search through the cupboards and may take the librarians assistance or else some others. But these libraries only had a limited number of books and a limited number of interested parties. These days libraries have different sections reserved for different services and the number of users is large in numbers. So these libraries need much efficient and effective mechanism to provide a better service to the library service which could not be done by only having staff.
@@ -110,3 +110,7 @@ The above features must be enabled prior to the installation. The sample configu
 		measurementId: 'TEST _KEY'
   }
 ```
+
+---
+
+** Special Thanks for Creative Team for Open Source Angular Dashboard **
