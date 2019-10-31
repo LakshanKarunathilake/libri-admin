@@ -12,6 +12,7 @@
 ## Technologies
 
 <p align="center" > 
+  <img width="120" " src="https://avatars0.githubusercontent.com/u/20172349?s=280&v=4" />
   <img width="100" " src="https://angular.io/assets/images/logos/angular/angular.png" />
     <img width="150" " src="https://raw.githubusercontent.com/t4t5/sweetalert/e3c2085473a0eb5a6b022e43eb22e746380bb955/assets/logotype.png" />
 <img width="80" " src="https://firebase.google.com/downloads/brand-guidelines/PNG/logo-vertical.png" />
@@ -109,10 +110,3 @@ The above features must be enabled prior to the installation. The sample configu
 		measurementId: 'TEST _KEY'
   }
 ```
-
-Additionally you have to add the google-servises.json file which you can download from the firebase console to use the services in the android application.
-
-This **google-services.json** file should be in the directory of **android/app/**
-
-[dashboard]: https://github.com/LakshanKarunathilake/libri-admin 'Libri-Admin'
-[server]: https://github.com/LakshanKarunathilake/Libri-server 'Libri-server'
